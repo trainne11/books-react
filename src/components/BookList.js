@@ -1,15 +1,16 @@
 import React from "react";
 import BookShow from "./BookShow";
+import useContextHook from "../hooks/ReusableContext";
 
-function BookList({ books, deleteBook, editBook }) {
+
+function BookList() {
+  let {books} = useContextHook();
   return (
     <div className="book-list">
       {books.map((item) => (
         <BookShow
-          editBook={editBook}
-          deleteBook={deleteBook}
-          book={item}
           key={item.id}
+          book = {item}
         />
       ))}
     </div>

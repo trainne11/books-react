@@ -1,14 +1,16 @@
 import React from "react";
+import useContextHook from "../hooks/ReusableContext";
 
-function BookCreate({ onCreate }) {
+function BookCreate() {
   let [title, setTitle] = React.useState("");
+  let {createBook} = useContextHook();
 
   const handleChange = (e) => {
     setTitle(e.target.value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    onCreate(title);
+    createBook(title);
 
     setTitle("");
   };

@@ -1,11 +1,13 @@
-import React from "react";
+import useContextHook from "../hooks/ReusableContext";
+import { useState } from "react";
 
-function BookEdit({ PreTitle, id, editBook, edit }) {
-  let [title, setTitle] = React.useState(PreTitle);
+function BookEdit({ PreTitle, id, edit }) {
+  let [title, setTitle] = useState(PreTitle);
+  let { editBookById } = useContextHook();
   function handleSubmit(e) {
     e.preventDefault();
 
-    editBook(id, title);
+    editBookById(id, title);
 
     edit(false);
   }
