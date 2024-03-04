@@ -5,10 +5,12 @@ import { useEffect } from "react";
 import useContextHook from "./hooks/ReusableContext";
 
 function App() {
-  let { fetching } = useContextHook();
+  let { stableFetchFunction } = useContextHook();
   useEffect(() => {
-    fetching();
-  }, []);
+    stableFetchFunction();
+  }, [stableFetchFunction]);
+
+
   return (
     <div>
       <BookList />
